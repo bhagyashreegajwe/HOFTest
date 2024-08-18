@@ -135,7 +135,12 @@ const compStart = companies.filter(comp => {
 console.log("10-1 ===>", compStart)
 
 const categoryRetail = companies.filter(comp => {
-    return comp.category.trim() === "Retail"
+    return comp.category.trim() === "retail"
+}).map(com => {
+    return {
+        compName : com.name,
+        duration : com.end - com.start
+    }
 })
 
 console.log("10-2 ===>", categoryRetail)
