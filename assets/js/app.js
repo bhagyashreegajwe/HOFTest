@@ -91,12 +91,11 @@ const usersArr = [
   { name: 'Charlie', age: 35, address: { city: 'Los Angeles', zip: 90001 } }
 ];
 
-const userCityArr = usersArr.map(user => {
-    return {
-        name : user.name,
-        city : user.address.city
-    }
-})
+let userCityArr = usersArr.filter(user => { return user.address.zip.toString().charAt(0) === '9' }
+).map(user => ({
+    name: user.name,
+    city: user.address.city
+}))
 
 console.log("9====>",userCityArr)
 
