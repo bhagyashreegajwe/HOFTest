@@ -1,9 +1,8 @@
 //1. create a new array containing only the words with more than 5 characters.
 const words = ['apple', 'banana', 'cherry', 'date'];
-const newWords = []
-words.map(word => {
+const newWords = words.filter(word => {
     if (word.length > 5) {
-        newWords.push(word)
+        return word
     }
 })
 
@@ -11,12 +10,9 @@ console.log('1 ===>', newWords)
 
 // 2. create a new array containing only the numbers that are divisible by both 5 and 10. 
 const numbers = [10, 25, 30, 45, 50];
-const numDiv = []
 
-numbers.map(num => {
-    if (num % 5 === 0 && num % 10 === 0) {
-        numDiv.push(num)
-    }
+const numDiv = numbers.filter(num => {
+       return num % 5 === 0 && num % 10 === 0
 })
 
 console.log('2 ===>', numDiv)
@@ -134,8 +130,17 @@ const compStart = companies.filter(comp => {
 
 console.log("10-1 ===>", compStart)
 
+// const categoryRetail = companies.filter(comp => {
+//     return comp.category.toLowerCase().trim() === "retail"
+// }).map(com => {
+//     return {
+//         compName : com.name,
+//         duration : com.end - com.start
+//     }
+// })
+
 const categoryRetail = companies.filter(comp => {
-    return comp.category.trim() === "retail"
+    return comp.category.trim().toLocaleLowerCase().includes('retail')
 }).map(com => {
     return {
         compName : com.name,
